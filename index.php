@@ -151,7 +151,7 @@
         $iSize = $row[5];
         $iImage = $row[6];
         
-        echo "<div class='sp w3-quarter w3-card w3-center ' ><div class='w3-orange w3-padding-large'>$iStatus</div><div ><img onclick=\"document.getElementById('$iName').style.display='block'\" id='testimg' src='./images/item/". $iImage . "' width='100%'></div><div class='name'><h3>$iName</h3></div><h3>$iPrice$</h3></div>"
+        echo "<div class='sp w3-quarter w3-card w3-center ' ><div class='w3-orange w3-padding-large'>$iStatus</div><div ><img onclick=\"document.getElementById('$iName').style.display='block'\" id='testimg' src='./". $iImage . "' width='100%'></div><div class='name'><h3>$iName</h3></div><h3>$iPrice$</h3></div>"
                 . "<!--SHOW MORE INFORMATION-->
   <div id='$iName' class='w3-modal'>
       <div class='w3-modal-content w3-animate-top w3-card-4'>
@@ -162,7 +162,7 @@
         </div>
         <div class='w3-container w3-row'>
           <div class='w3-half'>
-              <img src='./images/item/". $iImage . "' width='100%'>
+              <img src='./". $iImage . "' width='100%'>
           </div>
           <div class='w3-half w3-left'>
               <h3> Price: $iPrice$</h3>
