@@ -133,7 +133,7 @@
 
                 </div>
                 <div class="list w3-row">
-                    <div class="" id="Lego"><h2>Lego</h2>
+                    <h2>Lego</h2>
                       <?php
               include 'ketnoi.php';
                 $sql = "SELECT iId, iName, iDescription, iPrice, iStatus, iSize, iImage, catalogueId FROM item";
