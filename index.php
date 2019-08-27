@@ -134,6 +134,19 @@
                 </div>
                 <div class="list w3-row">
                     <div class="" id="Lego"><h2>Lego</h2>
+                      <?php
+              include 'ketnoi.php';
+                $sql = "SELECT iId, iName, iDescription, iPrice, iStatus, iSize, iImage, catalogueId FROM item";
+                $result = pg_query($connection,$sql);
+                if (pg_num_rows($result) > 0) {
+                // output data of each row
+                while($row = pg_fetch_assoc($result)) {
+                  $iId = $row['iId'];
+                    $iPrice = $row['iPrice'];
+                    $iImage = $row['iImage'];
+                    $iName = $row['iName'];
+             
+              ?>
                     
      
                 </div>
