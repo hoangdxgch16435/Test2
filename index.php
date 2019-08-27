@@ -142,38 +142,15 @@
      if (!$result){
       $error = "Couldn't load data, please try again.";
      }
-     while ($row = mysqli_fetch_array($result)) {
-        $iId = $row[0];
-        $iName = $row[1];
-        $iDescription = $row[2];
-        $iPrice = $row[3];
-        $iStatus = $row[4];
-        $iSize = $row[5];
-        $iImage = $row[6];
-        
-        echo "<div class='sp w3-quarter w3-card w3-center ' ><div class='w3-orange w3-padding-large'>$iStatus</div><div ><img onclick=\"document.getElementById('$iName').style.display='block'\" id='testimg' src='1.jpg' width='100%'></div><div class='name'><h3>$iName</h3></div><h3>$iPrice$</h3></div>"
-                . "<!--SHOW MORE INFORMATION-->
-  <div id='$iName' class='w3-modal'>
-      <div class='w3-modal-content w3-animate-top w3-card-4'>
-        <div class='w3-container w3-orange w3-center w3-padding-20'> 
-          <span onclick=\"document.getElementById('$iName').style.display='none';\"
-         class='w3-button w3-orange w3-xlarge w3-display-topright'>×</span>
-          <h2>$iName</h2>
-        </div>
-        <div class='w3-container w3-row'>
-          <div class='w3-half'>
-              <img src='1.jpg". $iImage . "' width='100%'>
-          </div>
-          <div class='w3-half w3-left'>
-              <h3> Price: $iPrice$</h3>
-              <p> Description: $iDescription.</p>
-              <h4>$iSize</h4>                           
-          </div>                                                    
-        </div>
-        <button class='w3-button w3-orange w3-section' onclick=\"document.getElementById('$iName').style.display='none';\">Close <i class='fa fa-remove'></i></button>
-      </div>
-    </div>";                                                                                       
-    }
+     while ($row = pg_fetch_assoc($result)) {
+        $iId = $row['iId'];
+        $iName = $row['iName'];
+        $iDescription = $row['iDescription'];
+        $iPrice = $row['iPrice'];
+        $iStatus = $row['iStatus'];
+        $iSize = $row['iSize'];
+        $iImage = $row['iImage'];
+      }
                 //$result = pg_query($connection,$sql);
                 //if (pg_num_rows($result) > 0) {
                 // output data of each row
