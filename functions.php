@@ -59,7 +59,7 @@ function runQuery($sql){
 		//chay cau truy van
 		$result = $conn->query($sql);
 		//doc ket qua chay cau truy van, tra ve mot mang
-		$rows = pg_fetch_all($result, pg_ASSOC);
+		$rows = pg_fetch_all($result);
 		//dong ket noi
 		$conn->close();
 		return $rows;

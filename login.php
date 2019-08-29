@@ -9,12 +9,12 @@ if (isset($_POST['user'])) {
         $error = "Not all fields was entered";
     } else {
         $token = passwordToToken($pass);
-        $result = queryMysql("SELECT * FROM user WHERE username = '$user' AND password = '$token' AND status='1'");
+        $result = pg_query("SELECT * FROM user WHERE username = '$user' AND password = '$token' AND status='1'");
         if ($result->num_rows == 0) {
             $error = "Username/Password invalid";
         } else {
             session_start();
-            $_SESSION['uId'] = mysqli_fetch_array($result)[0];
+            $_SESSION['uId'] = pg_fetch_array($result)[0];
             $_SESSION['user'] = $user;
             $_SESSION['pass'] = $pass;
             header("Location: index2.php"); //redirect to index.php
