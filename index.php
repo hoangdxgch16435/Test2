@@ -101,7 +101,7 @@
        
 
         <div class="container">
-            <center><img src="./images/lv.jpg"></center>
+            <center><img src="images/lv.jpg"></center>
             <div class="header">
                 
                 <div class="nav">
