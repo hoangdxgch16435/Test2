@@ -3,7 +3,7 @@ $dbhost = "ec2-54-235-86-101.compute-1.amazonaws.com";
 $dbport = 5432;
 $dbuser = "ffjjnqkvqbgtdv";
 $dbpassword = "2f8d36a7a380dfc345899711053cdda743a2bee9a633221b537e1d9ca96730e4";
-$dbname = "d417ob2n4lkqrd"; //
+$dbname = "d417ob2n4lkqrd"; 
 $salt1 = "qm&h*";
 $salt2 = "!@#$%";
 //Connect to the DB
@@ -53,13 +53,13 @@ function passwordToToken($password){
 //Add user to the database
 function addUser($username, $password, $status){
     //Setup one default user
-    $result = pg_query()("SELECT * FROM User where username='$username'");
+    $result = pg_query("SELECT * FROM User where username='$username'");
     $row = pg_fetch_assoc($result);
     if (!$row) { //user doesn't exist
         //Add a default user
         $token = passwordToToken($password);
         $query = "INSERT INTO User(username, password, status) VALUES('$username', '$token', '$status')";
-        pg_query()($query);
+        pg_query($query);
         return 1; //added
     }else {
         return 0; //not added
