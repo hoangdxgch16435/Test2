@@ -8,7 +8,7 @@
     <body>
         <h1>Setting up...</h1>
         <?php
-        require_once './functions.php';
+        require_once './ketnoi.php';
         
         
         //setup table User        
