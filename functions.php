@@ -7,7 +7,7 @@ $dbname = "d417ob2n4lkqrd";
 $salt1 = "qm&h*";
 $salt2 = "!@#$%";
 //Connect to the DB
-$connection = new pg_connect($dbhost, $dbuser, $dbpassword, $dbname, $dbport);
+$connection = pg_connect($dbhost, $dbuser, $dbpassword, $dbname, $dbport);
 if ($connection->connect_error) {
     die ($connection->connect_error);
 }
@@ -66,7 +66,7 @@ function addUser($username, $password, $status){
     }
 }
 function runQuery($sql){
-		$conn = new pg_connect($this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname);
+		$conn = pg_connect($this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname);
 		//chay cau truy van
 		$result = $conn->query($sql);
 		//doc ket qua chay cau truy van, tra ve mot mang
