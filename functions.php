@@ -1,21 +1,5 @@
 <?php
-$dbhost = "ec2-54-235-86-101.compute-1.amazonaws.com";
-$dbport = 5432;
-$dbuser = "ffjjnqkvqbgtdv";
-$dbpassword = "2f8d36a7a380dfc345899711053cdda743a2bee9a633221b537e1d9ca96730e4";
-$dbname = "d417ob2n4lkqrd"; 
-$salt1 = "qm&h*";
-$salt2 = "!@#$%";
-//Connect to the DB
-$connection = pg_connect($dbhost, $dbuser, $dbpassword, $dbname, $dbport);
-if ($connection->connect_error) {
-    die ($connection->connect_error);
-}
-
-$connection = pg_connect("host=ec2-54-235-86-101.compute-1.amazonaws.com port=5432 dbname=d417ob2n4lkqrd user=ffjjnqkvqbgtdv password=2f8d36a7a380dfc345899711053cdda743a2bee9a633221b537e1d9ca96730e4");  
- if(!$connection) {
-     die("Database connection failed");
- }
+include 'ketnoi.php';
 
 //this is used to execute all SQL queries
 function pg_query($query) {
