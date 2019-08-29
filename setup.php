@@ -9,6 +9,12 @@
         <h1>Setting up...</h1>
         <?php
         require_once './ketnoi.php';
+
+        create Table Userr (
+    uId serial PRIMARY KEY,
+    username VARCHAR(50),
+    password VARCHAR(50),
+    status CHAR(1));
         
         
         //setup table User        
