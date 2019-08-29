@@ -1,6 +1,6 @@
 <?php
 
-include 'ketnoi.php'
+include 'ketnoi.php';
 //$dbhost = "ec2-54-235-86-101.compute-1.amazonaws.com";
 //$dbport = 5432;
 //$dbuser = "ffjjnqkvqbgtdv";
