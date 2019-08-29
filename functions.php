@@ -1,19 +1,19 @@
 <?php
-$dbhost = "localhost";
-$dbport = 3306;
-$dbuser = "root";
-$dbpassword = "";
-$dbname = "Hoang"; //
+$dbhost = "ec2-54-235-86-101.compute-1.amazonaws.com";
+$dbport = 5432;
+$dbuser = "ffjjnqkvqbgtdv";
+$dbpassword = "2f8d36a7a380dfc345899711053cdda743a2bee9a633221b537e1d9ca96730e4";
+$dbname = "d417ob2n4lkqrd"; //
 $salt1 = "qm&h*";
 $salt2 = "!@#$%";
 //Connect to the DB
-$connection = new mysqli($dbhost, $dbuser, $dbpassword, $dbname, $dbport);
+$connection = new pg_connect($dbhost, $dbuser, $dbpassword, $dbname, $dbport);
 if ($connection->connect_error) {
     die ($connection->connect_error);
 }
 
 //this is used to execute all SQL queries
-function queryMysql($query) {
+function pg_query($query) {
     global $connection;
     $result = $connection->query($query);
     if (!$result) {
@@ -25,7 +25,7 @@ function queryMysql($query) {
 //this is used to create table
 function createTable($name, $body){
     $str = "CREATE TABLE IF NOT EXISTS $name($body)";
-    queryMysql($str);
+    pg_query($str);
     echo "Table $name is created or already exists";
 }
 
@@ -53,24 +53,24 @@ function passwordToToken($password){
 //Add user to the database
 function addUser($username, $password, $status){
     //Setup one default user
-    $result = queryMysql("SELECT * FROM User where username='$username'");
-    $row = mysqli_fetch_assoc($result);
+    $result = pg_query()("SELECT * FROM User where username='$username'");
+    $row = pg_fetch_assoc($result);
     if (!$row) { //user doesn't exist
         //Add a default user
         $token = passwordToToken($password);
         $query = "INSERT INTO User(username, password, status) VALUES('$username', '$token', '$status')";
-        queryMysql($query);
+        pg_query()($query);
         return 1; //added
     }else {
         return 0; //not added
     }
 }
 function runQuery($sql){
-		$conn = new mysqli($this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname);
+		$conn = new pg_connect($this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname);
 		//chay cau truy van
 		$result = $conn->query($sql);
 		//doc ket qua chay cau truy van, tra ve mot mang
-		$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+		$rows = pg_fetch_all($result, pg_ASSOC);
 		//dong ket noi
 		$conn->close();
 		return $rows;
