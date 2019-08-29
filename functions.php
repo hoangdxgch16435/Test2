@@ -11,7 +11,6 @@ $connection = pg_connect($dbhost, $dbuser, $dbpassword, $dbname, $dbport);
 if ($connection->connect_error) {
     die ($connection->connect_error);
 }
-?>
 
 //this is used to execute all SQL queries
 function pg_query($query) {
@@ -76,3 +75,5 @@ function runQuery($sql){
 		$conn->close();
 		return $rows;
 	}
+    ?>
+    
