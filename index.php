@@ -101,7 +101,7 @@
        
 
         <div class="container">
-            <center><img src="toy.PNG"></center>
+            <center><img src="toy.png"></center>
             <div class="header">
                 
                 <div class="nav">
